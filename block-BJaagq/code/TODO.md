@@ -13,8 +13,14 @@ function change() {
 }
 
 console.log(species); // 1
+
+// first out put is human;
 change();
+// when we call the change function then output is vampire;
 console.log(species); // 2
+![](./img/q1.jpg)
+
+//  second species output is human ;
 ```
 
 <!-- Put your image below -->
@@ -45,6 +51,7 @@ function topLevelFn() {
 topLevelFn();
 ```
 
+![](./img/q2.jpg)
 <!-- Put your image below -->
 
 ![](./img/image-name.jpg)
@@ -78,6 +85,7 @@ console.log(one, two, three, four); // 5
 
 <!-- Put your image below -->
 
+![](./img/q3.jpg)
 ![](./img/image-name.jpg)
 
 - Create the execution context diagram
