@@ -22,6 +22,10 @@ The above code will throw an error `Reference Error username is not defined`.
 console.log(useranme); // output
 ```
 
+in the above code we are lookinf for variable named `userNmme` there is no variable named `userName` in the global scope this variable is block scope ;
+
+The above code will throw an error `Reference Error username is not defined`.
+
 3. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
 ```js
@@ -30,6 +34,10 @@ if (true) {
 }
 console.log(useranme); // output
 ```
+in the above code we are lookinf for variable named `userNmme` there is no variable named `userName` in the global scope this variable is block scope ;
+
+The above code will throw an error `Reference Error username is not defined`.
+
 
 4. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -38,6 +46,11 @@ if (true) {
   var username = 'Arya';
 }
 console.log(useranme); // output
+
+
+in the above code we are looking for variable named `userNmme` there is no variable named `userName` in the global scope this variable is block scope ;
+
+The above code will throw an error `Reference Error username is not defined`.
 ```
 
 5. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -47,8 +60,11 @@ let username = 'John';
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // output
+console.log(useranme); // output  // "john"
+
 ```
+in the above code we  are looking for variable named `userName ` there is two variable same name one variable is inside of function so it is make a function scope and second is global scope ;
+
 
 6. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -57,8 +73,11 @@ let username = 'John';
 if (true) {
   let username = 'Arya';
 }
-console.log(useranme); // output
+console.log(useranme); // output /// "john";
 ```
+
+in the above code we  are looking for variable named `userName ` there is two variable same name one variable is inside of function so it is make a function scope and second is global scope ;
+
 
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -68,8 +87,10 @@ function sayHello() {
   let username = 'Arya';
 }
 sayHello();
-console.log(useranme); // output
+console.log(useranme); // output // "john"
 ```
+in the above code we  are looking for variable named `userName ` there is two variable same name one variable is inside of function so it is make a function scope and second is global scope ;
+
 
 8. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
 
@@ -84,7 +105,18 @@ console.log(i, 'Second'); // output
 
 ```js
 for (let i = 0; i < 10; i++) {
-  console.log(i, 'First'); // output
+  console.log(i, 'First'); // output   0 'First'
+// 1 'First'
+//  2 'First'
+//  3 'First'
+//  4 'First' 
+//   5 'First'
+//  6 'First'
+//  7 'First'
+// 8 'First'
+//  9 'First
+
 }
-console.log(i, 'Second'); // output
+console.log(i, 'Second'); // output 10 'Second'
+
 ```
