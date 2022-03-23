@@ -3,20 +3,38 @@
 1. Write a function, `outer` that takes an input `string`. Inside the function `outer` define another function expression named `sayHello` which alerts the `input`. `sayHello` should be call immediately after it is defined.
 
 ```js
-// Your code goes here
+function outer(str){
+  var sayHello = function() {
+   alert (str)
+};
+return sayHello;
+}
+let ans=outer();
+ans();
 ```
 
 2. Write a function `delay` that accepts two arguments, a callback and the wait for the time in milliseconds (1000 ms is 1 second). `delay` should return a function that, when invoked waits for the specified amount of time before executing. (Use setTimeout)
 
 ```js
-// Your code goes here
+function delay(){
+  return function(cb,wait){
+    setTimeout(()=>console.log(cb),wait)
+  }
+}
+let fir2=delay();
+fir2('dela3',1000)
 ```
+
+
 
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName() {
-  //  Your code goes here
+function lastName(name) {
+  function inner(dam){
+return nam+""+dam;
+  }
+  return inner;
 }
 
 let lastNameLee = lastName('lee'); // logs nothing
@@ -34,12 +52,22 @@ lastNameLee('Lynne'); //logs 'Lynne Lee'
 
 ```js
 function storyWriter() {
-  // Your code goes here
+    let store="";
+return {
+    methodFirst:function addWord(name){
+       store=store+name;
+        return store;
+    },
+    methodSecond:function erase(nametwo){
+        return "";
+    }
 }
 
-// Test
+}
+
+
 let farmLoveStory = storyWriter();
-farmLoveStory.addWords('There was once a lonely cow.'); // 'There was once a lonely cow.'
+farmLoveStory.methodFirst('There was once a lonely cow.');// 'There was once a lonely cow.'
 farmLoveStory.addWords('It saw a friendly face.'); //'There was once a lonely cow. It saw a friendly face.'
 farmLoveStory.erase(); //''
 
@@ -54,11 +82,16 @@ storyOfMyLife.erase(); // ''
 When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
 
 ```js
-function forEach() {
-  // Your code goes here
+function forEach(){
+    let count=1
+    return function nexa(){
+      return count++
+    }
+    
 }
-
-let next = [1, 2, 3, 4, 5];
+let next=[1,2,3,4,5]
+let ans=forEach();
+ans();
 next(); // 1
 next(); // 2
 next(); // 3
@@ -72,7 +105,10 @@ The returned function accepts a string `prefix` and returns `prefix` and `title`
 
 ```js
 function addDesignation(title) {
-  // your code goes here
+  function inner(prifix){
+    return prifix+""+title;
+  }
+  return innner;
 }
 
 let sales = addDesignation('Salesman');
@@ -90,8 +126,18 @@ manager('Head'); // Head Manager
 - `current` will return the current salary returns the updated salary
 
 ```js
-function changeSalary() {
-  // Your code goes here
+function changeSalary(currentSalary) {
+  return {
+    rais:function growth(){
+      return currentSalary+500;
+    },
+    lower:function low(x){
+      return currentSalary-500
+    },
+    current:function current(){
+      return currentSalary;
+    }
+  }
 }
 
 let sam = changeSalary(2000);
@@ -108,7 +154,19 @@ arya.lower(); // 3500
 - `setLastName`: accepts a parameter last name using which updates the firstName and return the updated full name
 
 ```js
-// Your code goes here
+function nameFactory(firstName,lastName){
+  return{
+    getFullName:function fullname(){
+      return firstName+" " +lastName;
+    },
+    setFirstName:function first(prefix){
+      return prefix+' '+lastName;
+    },
+    setLastname:function last(suffix){
+      return firstName+' '+suffix;
+    }
+  }
+}
 
 let arya = nameFactory('Arya', 'Stark');
 arya.getFullName(); // "Arya Stark"
@@ -121,8 +179,11 @@ arya.setLastName('Lannister'); // "Jon Lannister"
 The returned function accepts a string (children) and returns the children with the tag you passed.
 
 ```js
-function createTag() {
-  // your code goes here
+function createTag(tagName) {
+  let tag=document.creatElement(tagName);
+  return function inner (str){
+    return tag.innerText=str;
+  }
 }
 
 let bold = createTag('b');
