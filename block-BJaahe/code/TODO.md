@@ -23,6 +23,14 @@ function delay(){
 }
 let fir2=delay();
 fir2('dela3',1000)
+
+// second way
+function delay(cb,ms){
+  return function(){
+    setTimeout(cb,ms)
+  }
+  delay (()=>console.log("hello"),2000);
+  let time=delay (()=>console.log("hello"),2000);
 ```
 
 
@@ -82,15 +90,15 @@ storyOfMyLife.erase(); // ''
 When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
 
 ```js
-function forEach(){
+function forEach(arr){
     let count=1
     return function nexa(){
-      return count++
+      return arr[count++];
     }
     
 }
 let next=[1,2,3,4,5]
-let ans=forEach();
+let ans=forEach(next);
 ans();
 next(); // 1
 next(); // 2
@@ -182,7 +190,8 @@ The returned function accepts a string (children) and returns the children with 
 function createTag(tagName) {
   let tag=document.creatElement(tagName);
   return function inner (str){
-    return tag.innerText=str;
+     tag.innerText=str;
+     return tag;
   }
 }
 
