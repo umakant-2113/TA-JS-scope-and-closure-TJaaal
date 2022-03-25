@@ -51,11 +51,27 @@ var add = function (a, b) {
   return a * b;
 };
 reduce(nums, add, 1) //-> 8
+
+// bhai method 
+function reduce(array, callback, initialValue) {
+ let accumulator=initialValue;
+ for(let i=0;i<array.length;i++){
+   accumulator=callback(accumulator,array[i])
+    
+ }
+    return accumulator;
+}
+var nums = [4, 1, 3];
+var add = function (a, b) {
+  return a + b;
+}
+reduce(nums, add, 0); 
 ```
 
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
+// our method 
 function intersection(arrays,arrays2,arrays3) {
  let x=[]
  arrays.filter(elem=>{
@@ -68,24 +84,63 @@ x.push(elem)
  console.log(x);
 
 }
-
-
 console.log(
   intersection(
     [5, 10, 15, 20],
     [15, 88, 1, 5, 7],
     [1, 10, 15, 5, 20]
   )
-);  // should log: [5, 15]
+); 
+ // should log: [5, 15]
+
+//  bhai method
+function intersection(...array){
+let first=array[0];
+for(let i=1;array.length>=i;i++){
+    let second=array[i]
+first = first.filter(elm=>{
+  return second.includes(elm)
+})
+return first
+}
+
+}
+console.log(
+  intersection(
+    [5, 10, 15, 20],
+    [15, 88, 1, 5, 7],
+    [1, 10, 15, 5, 20]
+  )
+);
 ```
 
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
+// bhai method 
+function intersection(...array){
+let first=array[0];
+for(let i=1;array.length>=i;i++){
+first.filter(elm=>{
+  return second.includes(elm)
+})
+first[i]
+return first;
+}
+
+}
+console.log(
+  intersection(
+    [5, 10, 15, 20],
+    [15, 88, 1, 5, 7],
+    [1, 10, 15, 5, 20]
+  )
+);
+// our method 
+
 function intersection(arrays,arrays2,arrays3) {
- let fullArray=arrays.concat(arrays2,arrays3)
-let intersection= new Set(fullArray);
-    console.log(intersection);
+ let union=[...new Set([...arrays,...arrays2,...arrays3])]
+    console.log(union);
 }
 
 
