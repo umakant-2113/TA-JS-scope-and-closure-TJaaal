@@ -14,6 +14,9 @@ console.log(
   window.lastName,
   window.knownAs
 );
+
+out put is  (undefined ,undefined, "no one");
+why let and const does not attach with window object ;only var is attach with window object;
 ```
 
 2. Guess the output:
@@ -28,6 +31,7 @@ function fullName(a, b) {
 }
 
 console.log(window.fullName(firstName, lastName));
+it is  out put "arya stark"
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
@@ -39,6 +43,7 @@ fucntion addOne(num){
 var one = addOne(0);
 var two = addOne(1);
 console.log(one, two);
+it is out put 1and 2;
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
@@ -109,6 +114,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+
+when we call the function then is is going to inside the function and if condition is true then is is gonig to innside of condition ;
 ```
 
 10. What will be the output of the following
@@ -122,6 +129,7 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+when we call the function then is is going to inside the function and if condition is fale then is is  not gonig to iside of condition ;
 ```
 
 11. What will be the output of the following
@@ -136,6 +144,7 @@ function fullName(a, b) {
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+out put is  "arya stark";
 ```
 
 12. Guess the output of the code below with a reason.
@@ -147,6 +156,8 @@ function sayHello() {
 sayHello();
 
 console.log(name);
+// when we call the function ;then function is return his out put when we do not return then function is return undefined;
+// when we defined variable whit let then let is creat block scope we can not  call out side of scope ;
 ```
 
 13. Guess the output of the code below with a reason.
@@ -156,6 +167,7 @@ if (true) {
   var name = 'Arya Stark';
 }
 console.log(name);
+// out put is "arya stark "why var is creat only function scope ;
 ```
 
 14. Guess the output of the code below with a reason.
@@ -165,6 +177,8 @@ if (true) {
   let name = 'Arya Stark';
 }
 console.log(name);
+
+// out put is "arya stark"
 ```
 
 15. Guess the output of the code below with a reason.
@@ -174,6 +188,7 @@ for (var i = 0; i < 20; i++) {
   //
 }
 console.log(i);
+// out  put is 20 why if we defined a variable help of var then we can call out side of loop;
 ```
 
 16. Guess the output of the code below with a reason.
@@ -183,6 +198,7 @@ for (let i = 0; i < 20; i++) {
   //
 }
 console.log(i);
+// out  put is error why if we defined a variable help of let then we can not call out side of loop;
 ```
 
 17. Guess the output and the reason behind that.
@@ -195,6 +211,8 @@ function sample() {
   console.log(username);
 }
 sample();
+
+// out put is "John snow";
 ```
 
 18. Guess the output and the reason behind that.
@@ -207,6 +225,7 @@ function sample() {
   console.log(username);
 }
 sample();
+// out put is "John snow";
 ```
 
 19. Guess the output and the reason behind that.
@@ -216,11 +235,14 @@ function sample() {
   var username = 'Arya Stark';
   if (true) {
     var username = 'John Snow';
-    console.log(username);
+    
   }
+  console.log(username"first");
   console.log(username, 'second');
 }
 sample();
+
+// we can defined two variable same name help of var;
 ```
 
 20. Guess the output and the reason behind that.
@@ -235,6 +257,7 @@ function sample() {
   console.log(username, 'second');
 }
 sample();
+// out put is "arya stark "and "john snow";
 ```
 
 21. Guess the output and the reason behind that.
@@ -248,6 +271,7 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+// out put is "hello i am first ",and "i am second ","i am third";
 ```
 
 22. Guess the output and the reason behind that.
@@ -261,6 +285,8 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+
+// out put is "hello i am first ",and "i am second ","i am third";
 ```
 
 23. Guess the output and the reason behind that.
@@ -274,6 +300,8 @@ if (true) {
   let username = 'Hello World!';
   myFunc();
 }
+
+// second user name give use output "Hello world" but first we call first   bofore difineing the variable  so it is give us error 
 ```
 
 24. Guess the output and the reason behind that.
@@ -290,6 +318,9 @@ function outer() {
 }
 
 outer();
+
+
+// we can call the variable inside function ;that variable is define first function,if we define the variable inside function we can not call outside function; 
 ```
 
 25. Guess the output and the reason behind that.
@@ -307,6 +338,8 @@ function outer() {
 }
 
 outer();
+// we can call the variable inside function ;that variable is define first function,
+// if we define the variable inside function we can not call outside function; 
 ```
 
 26. Guess the output and the reason behind that.
@@ -327,6 +360,8 @@ function outer() {
   inner();
 }
 outer();
+// output is "I love this movie called Gone girl";
+
 ```
 
 30. Using reduce find the final value when the initial value passed is `100`. You have to pass the output of one function into the input of next function in the array `allFunctions` starts with `addOne` ends with `half`.
@@ -353,6 +388,12 @@ let allFunctions = [
   multiplyThree,
   half,
 ];
+
+
+let allFunctions = [addOne,subTwo,multiplyThree, addOne,multiplyThree,half];
+allFunctions.reduce((acc,cv)=>{
+console.log(cv)
+},100)
 
 // Answer is: 447
 ```
