@@ -13,11 +13,7 @@ const addOne = (num) => {
   
   let allFunctions = [
     addOne,
-    subTwo,
-    multiplyThree,
-    addOne,
-    multiplyThree,
-    half,
+
   ];
   
   
