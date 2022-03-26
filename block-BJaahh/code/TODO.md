@@ -33,16 +33,18 @@ const final = name('Smith'); // final should be "Will Smith"
 ```js
 function isInBetween(a, b) {
   return function final(num){
-if(num>=10&&num<=100){
+if(num>=a&&num<=b){
   return true;
-}else{
-  return false;
-}
+}else if((num<=a&&num>=b)){
+  return "true2";
+}else if(num>=a&&num>=b){
+    return false
   }
+}
 }
 
 const isChild = isInBetween(10, 100);
-isChild(21); // true
+isChild(112); // true
 isChild(45); // true
 isChild(103); // false
 ```
