@@ -21,6 +21,25 @@ console.log(
     }
   )
 ); // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
+
+// bhai solution
+function objOfMatches(array1,array2,callbaxck){
+  return array1.reduce((acc,cv,index)=>{
+if(array2[index]===callback(cv)){
+  acc[cv]=array2[index];
+}
+return acc;
+  },{})
+}
+console.log(
+  objOfMatches(
+    ['hi', 'howdy', 'bye', 'later', 'hello'],
+    ['HI', 'Howdy', 'BYE', 'LATER', 'hello'],
+    function (str) {
+      return str.toUpperCase();
+    }
+  )
+); 
 ```
 
 2. Construct a function `multiMap` that will accept two arrays: an array of values and an array of callbacks. `multiMap` will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
@@ -56,6 +75,37 @@ console.log(
     ]
   )
 ); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+
+
+// bhai solution 
+
+function multiMap(arrVals,arrCallbacks){
+return arrVals.reduce((acc,cv)=>{
+  let value = arrCallbacks.map(elm=> elm(cv))
+  acc[cv]=value;
+  return acc;
+},{})
+}console.log(
+  multiMap(
+    ['catfood', 'glue', 'beer'],
+    [
+      function (str) {
+        return str.toUpperCase();
+      },
+      function (str) {
+        return (
+          str[0].toUpperCase() + str.slice(1).toLowerCase()
+        );
+      },
+      function (str) {
+        return str + str;
+      },
+    ]
+  )
+);
+
+
+
 ```
 
 3. Construct a function `objOfMatchesWithArray` that accepts three arrays. First two array will be an array of same length. Third array is a collection function in an array. `objOfMatchesWithArray` will build an object and return it. Look at the example below to understand better
@@ -93,6 +143,9 @@ console.log(
     ]
   )
 ); // should log: { hi: 'HiHi', howdy: 'HowdyHowdy'}
+
+//bhai solution
+
 ```
 
 4. Construct a function `objectWithArrayValues` that accepts two arrays. First array will be array of any values, second array will be array of functions.
