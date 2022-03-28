@@ -6,14 +6,17 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 
 ```js
 function censor(fromWord, toWord) {
-  //  Your code goes here
+  return function (sentence){
+    let p=sentence.replace(fromWord,toWord)
+    return p;
+  }
 }
 
 let censorSentence = censor('World', 'Sam');
 censorSentence('Hello World'); // Hello Sam
 
 let censorQuote = censor('die', 'live');
-censorQuote(`all men must die`); // all men must live
+censorQuote(`all men must die`) // all men must live
 ```
 
 2. Create a function named `multipleCensor` which does not accept any parameter and returns a function.
@@ -25,7 +28,20 @@ The returned function either accepts two parameter or one parameter.
 
 ```js
 function multipleCensor() {
-  //  Your code goes here
+ let word=[];
+ return function (...parameter){
+if(parameter.length===1){
+let queto=parameter[0]
+word.forEach(pair=>{
+  queto=queto.replace(pair[0],pair[1])
+})
+return queto;
+}else if(parameter.length===2){
+word.push(parameter)
+}else{
+  alert ("invalid parameters")
+}
+ }
 }
 
 let censorQuote = multipleCensor();
@@ -49,8 +65,13 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache() {
-  // Your code goes here
+function createCache(cb,str) {
+  let obj = {}
+  return function (x){
+    if(typeof x =="number"){
+obj[x]=cb(x)
+    }else if(x==str) return obj
+  }
 }
 
 function add10(num) {
@@ -69,8 +90,13 @@ addCache('foo'); // {12: 22, 100: 110, 1: 11}
 4. Change the above function in such a way that when the returned function is called with any other value than password. It should first check the object where we are storing the argument and return value. If the key is present return the value form the object itself. Otherwise call the callback function with the parameter.
 
 ```js
-function createCache() {
-  // Your code goes here
+function createCache(cb,x) {
+  let obj={};
+  return function (x){
+    if(typeof x=="number" && x==1){
+      obj[x]=cb(x)
+    }else if(x==str) return obj
+  }
 }
 
 function add10(num) {
@@ -79,10 +105,10 @@ function add10(num) {
 
 let addCache = createCache(add10, 'foo');
 
-addCache(12); // 22
-addCache(100); // 110
-addCache(100); // 110 (callback should not be called)
-addCache(100); // 110 (callback should not be called)
+addCache(15); // 22
+addCache(110); // 110
+addCache(120); // 110 (callback should not be called)
+addCache(130); // 110 (callback should not be called)
 addCache(1); // 11
 
 addCache('foo'); // {12: 22, 100: 110, 1: 11}
